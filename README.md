@@ -1,7 +1,18 @@
-# trychat
-A quick go at an encrypted chatting application
+<h1 align="center">TryChat</h1>
 
-# goals
-Chatting client and server application for desktop with one integrated chatroom
-RSA + AES 256 encrypted
-Using the standard TCP protocol and sockets
+<p>Chatting client and server application for desktop with one integrated chatroom</p>
+
+- [Repo](https://github.com/Von-Schmidt/trychat "trychat repo")
+
+<h2>Features</h2>
+
+- [x] RSA + AES 256 encrypted
+- [x] TCP protocol and sockets
+- [x] Written in C++
+
+
+
+<h2>Authors</h2>
+
+**Vincent Šmíd and Filip Hrbáček**
+
