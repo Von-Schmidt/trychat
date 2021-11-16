@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
+#include <string>
 
-string BinToHex(string bin)
+std::string BinToHex(std::string bin)
 {
 	if (bin == "0000")
 	{
@@ -69,7 +70,7 @@ string BinToHex(string bin)
 	}
 }
 
-string HexToBin(string hex)
+std::string HexToBin(std::string hex)
 {
 	if (bin == "0")
 	{
@@ -137,7 +138,7 @@ string HexToBin(string hex)
 	}	
 }
 
-string DecToHex (uint dec)
+std::string DecToHex (uint dec)
 {
 	int divisors[] = {0};
 
