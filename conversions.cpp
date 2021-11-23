@@ -6,133 +6,133 @@ std::string BinToHex(std::string bin)
 {
 	if (bin == "0000")
 	{
-		return "0";
+		return '0';
 	}
 	else if (bin == "0001")
 	{
-		return "1";
+		return '1';
 	}
 	else if (bin == "0010")
 	{
-		return "2";
+		return '2';
 	}
 	else if (bin == "0011")
 	{
-		return "3";
+		return '3';
 	}
 	else if (bin == "0100")
 	{
-		return "4";
+		return '4';
 	}
 	else if (bin == "0101")
 	{
-		return "5";
+		return '5';
 	}
 	else if (bin == "0110")
 	{
-		return "6";
+		return '6';
 	}
 	else if (bin == "0111")
 	{
-		return "7";
+		return '7';
 	}
 	else if (bin == "1000")
 	{
-		return "8";
+		return '8';
 	}
 	else if (bin == "1001")
 	{
-		return "9";
+		return '9';
 	}
 	else if (bin == "1010")
 	{
-		return "a";
+		return 'a';
 	}
 	else if (bin == "1011")
 	{
-		return "b";
+		return 'b';
 	}
 	else if (bin == "1100")
 	{
-		return "c";
+		return 'c';
 	}
 	else if (bin == "1101")
 	{
-		return "d";
+		return 'd';
 	}
 	else if (bin == "1110")
 	{
-		return "e";
+		return 'e';
 	}
 	else if (bin == "1111")
 	{
-		return "f";
+		return 'f';
 	}
 }
 
-std::string HexToBin(std::string hex)
+std::string HexToBin(char hex)
 {
-	if (bin == "0")
+	if (bin == '0')
 	{
 		return "0000";
 	}
-	else if (bin == "1")
+	else if (bin == '1')
 	{
 		return "0001";
 	}
-	else if (bin == "2")
+	else if (bin == '2')
 	{
 		return "0010";
 	}
-	else if (bin == "3")
+	else if (bin == '3')
 	{
 		return "0011";
 	}
-	else if (bin == "4")
+	else if (bin == '4')
 	{
 		return "0100";
 	}
-	else if (bin == "5")
+	else if (bin == '5')
 	{
 		return "0101";
 	}
-	else if (bin == "6")
+	else if (bin == '6')
 	{
 		return "0110";
 	}
-	else if (bin == "7")
+	else if (bin == '7')
 	{
 		return "0111";
 	}
-	else if (bin == "8")
+	else if (bin == '8')
 	{
 		return "1000";
 	}
-	else if (bin == "9")
+	else if (bin == '9')
 	{
 		return "1001";
 	}
-	else if (bin == "a")
+	else if (bin == 'a')
 	{
 		return "1010";
 	}
-	else if (bin == "b")
+	else if (bin == 'b')
 	{
 		return "1011";
 	}
-	else if (bin == "c")
+	else if (bin == 'c')
 	{
 		return "1100";
 	}
-	else if (bin == "d")
+	else if (bin == 'd')
 	{
 		return "1101";
 	}
-	else if (bin == "e")
+	else if (bin == 'e')
 	{
 		return "1110";
 	}
-	else if (bin == "f")
+	else if (bin == 'f')
 	{
 		return "1111";
 	}	
@@ -165,7 +165,7 @@ std::string DecToHex (uint dec)
 	return results;
 }
 
-uint HexToDec (string hex)
+uint HexToDec (char hex)
 {
 	uint result = 0;
 	char character;
@@ -175,67 +175,67 @@ uint HexToDec (string hex)
 	{
 		character = hex[-(i + 1)];
 
-		if (character == "0")
+		if (character == '0')
 		{
 			dec = 0;
 		}
-		else if (character == "1")
+		else if (character == '1')
 		{
 			dec = 1;
 		}
-		else if (character == "2")
+		else if (character == '2')
 		{
 			dec = 2;
 		} 
-		else if (character == "3")
+		else if (character == '3')
 		{
 			dec = 3;
 		} 
-		else if (character == "4")
+		else if (character == '4')
 		{
 			dec = 4;
 		} 
-		else if (character == "5")
+		else if (character == '5')
 		{
 			dec = 5;
 		} 
-		else if (character == "6")
+		else if (character == '6')
 		{
 			dec = 6;
 		} 
-		else if (character == "7")
+		else if (character == '7')
 		{
 			dec = 7;
 		} 
-		else if (character == "8")
+		else if (character == '8')
 		{
 			dec = 8;
 		} 
-		else if (character == "9")
+		else if (character == '9')
 		{
 			dec = 9;
 		} 
-		else if (character == "a")
+		else if (character == 'a')
 		{
 			dec = 10;
 		} 
-		else if (character == "b")
+		else if (character == 'b')
 		{
 			dec = 11;
 		} 
-		else if (character == "c")
+		else if (character == 'c')
 		{
 			dec = 12;
 		} 
-		else if (character == "d")
+		else if (character == 'd')
 		{
 			dec = 13;
 		} 
-		else if (character == "e")
+		else if (character == 'e')
 		{
 			dec = 14;
 		} 
-		else if (character == "f")
+		else if (character == 'f')
 		{
 			dec = 15;
 		}
