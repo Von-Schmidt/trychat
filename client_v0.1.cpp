@@ -55,15 +55,15 @@ int main()
         
         // Wait for a response
         memset(&buf, 0, bufferSize);
-        int bytesRecieved = recv(sock, buf, bufferSize, 0);
-        if (bytesRecieved == -1)
+        int bytesReceieved = recv(sock, buf, bufferSize, 0);
+        if (bytesReceieved == -1)
         {
             std::cout << "There was an error getting response from server!" << std::endl;
         }
         else
         {
             // Dispaly response
-            std::cout << "SERVER> " << std::string(buf, bytesRecieved) << "\r\n";
+            std::cout << "SERVER> " << std::string(buf, bytesReceieved) << "\r\n";
         }
     } while(true);
 
