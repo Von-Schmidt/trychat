@@ -8,7 +8,7 @@
 
 - [x] RSA + AES 256 encrypted
 - [x] TCP protocol and sockets
-- [x] Written in C++
+- [x] Written in C++ and Python (for now)
 
 
 
