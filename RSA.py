@@ -2,13 +2,9 @@ import random
 import math
 
 #nemělo by bejt potřeba later, zatim na test
-def isprime(num):
-    if num == 2:
-        return True
-    if num < 2 or num % 2 == 0:
-        return False
-    for n in range(3, int(num**0.5) + 2, 2):
-        if num % n == 0:
+def isprime(n):
+    for i in range (2, n//2+1):
+        if (not (n%i)):
             return False
     return True
 
@@ -70,7 +66,7 @@ def keygen(p, q):
 
     d = euclid2(e, phi) # this shit doesnt fucking work
 
-    return ((e, n), (d, n)
+    return ((e, n), (d, n))
 
 def encrypt(pk, plaintext):
     key, n = pk
