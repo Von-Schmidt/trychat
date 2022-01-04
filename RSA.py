@@ -1,20 +1,19 @@
 import random
-import math
 
-#nemělo by bejt potřeba later, zatim na test
+# nemělo by bejt potřeba later, zatim na test
 def isprime(n):
     for i in range (2, n//2+1):
         if (not (n%i)):
             return False
     return True
 
-# find common divisor among the two values
-# iteration for faster operation
+# old module inverse func, but it needs to be in here, otherwise it doesn't work
 def euclid3(a, b):
-     while b != 0:
-         a, b = b, a %b
-     return a
+    while b != 0:
+        a, b = b, a % b
+    return a
 
+# finding gcd
 def euclid1(a, b):
     x, y, u, v = 0, 1, 1, 0
     while a != 0:
@@ -24,6 +23,7 @@ def euclid1(a, b):
     gcd = b
     return gcd, x, y
 
+# modulo inverse function
 def euclid2(a, m):
     gcd, x, y = euclid1(a, m)
     if gcd != 1:
@@ -55,12 +55,12 @@ def keygen(p, q):
 
 def encrypt(pk, plaintext):
     key, n = pk
-    cipher = [(ord(char) ** key) % n for char in plaintext] ## this doesn't appareantly work
+    cipher = [(ord(char) ** key) % n for char in plaintext]
     return cipher 
 
 def decrypt(pk, ciphertext):
     key, n = pk
-    plain = [chr((char ** key) % n) for char in ciphertext] ## this doesn't appareantly work
+    plain = [chr((char ** key) % n) for char in ciphertext]
     return ''.join(plain)
 
 if __name__ == '__main__':
