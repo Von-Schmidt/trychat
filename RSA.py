@@ -1,17 +1,31 @@
 import random
 
-# nemělo by bejt potřeba later, zatim na test
+# required only if user inputs
 def isprime(n):
     for i in range (2, n//2+1):
         if (not (n%i)):
             return False
     return True
 
-# old module inverse func, but it needs to be in here, otherwise it doesn't work
-def euclid3(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return a
+def primesInRange(x, y):
+    prime_list = []
+    for n in range(x, y):
+        isPrime = True
+
+        for num in range(2, n):
+            if n % num == 0:
+                isPrime = False
+
+        if isPrime:
+            prime_list.append(n)
+            
+    return prime_list
+
+# old gcd funct
+#def euclid3(a, b):
+#    while b != 0:
+#        a, b = b, a % b
+#    return a
 
 # finding gcd
 def euclid1(a, b):
@@ -44,10 +58,17 @@ def keygen(p, q):
 
     e = random.randrange(1, phi)     # random might not be secure enough?
 
-    g = euclid3(e, phi)
+
+    # this used the old gcd func. 
+    #g = euclid3(e, phi)
+    #while g != 1:
+    #    e = random.randrange(1, phi) 
+    #    g = euclid3(e, phi)
+
+    g, _, _ = euclid1(e, phi)
     while g != 1:
         e = random.randrange(1, phi)
-        g = euclid3(e, phi)
+        g, _, _ = euclid1(e, phi)
 
     d = euclid2(e, phi) # this shit doesnt fucking work
 
@@ -64,15 +85,17 @@ def decrypt(pk, ciphertext):
     return ''.join(plain)
 
 if __name__ == '__main__':
-    p = int(input("Enter a prime number (17, 19, 23, etc): "))
-    q = int(input("Enter another prime number (Not one you entered above): "))
-    print("Generating your public/private keypairs now . . .")
+    primelist = primesInRange(1000, 1500)
+    p = random.choice(primelist)
+    q = random.choice(primelist)
+    #p = int(input("Enter a prime number (17, 19, 23, etc): "))             ------ for input
+    #q = int(input("Enter another prime number (Not one you entered above): "))
+    print("Generating keypairs...")
     public, private = keygen(p, q)
-    print("Your public key is ", public ," and your private key is ", private)
-    message = input("Enter a message to encrypt with your private key: ")
+    print("Public key: ", public, "Private key: ", private)
+    message = input("Enter a message to encrypt using the private key: ")
     encrypted_msg = encrypt(private, message)
-    print("Your encrypted message is: ")
-    print(''.join(map(lambda x: str(x), encrypted_msg)))
-    print("Decrypting message with public key ", public ," . . .")
-    print("Your message is:")
-    print(decrypt(public, encrypted_msg))
+    print("Encrypted message:", ''.join(map(lambda x: str(x), encrypted_msg)))
+    print("Decrypting with public key: ", public, " ...")
+    print("Decrypted message: ", decrypt(public, encrypted_msg))
+
