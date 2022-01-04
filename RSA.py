@@ -10,40 +10,25 @@ def isprime(n):
 
 # find common divisor among the two values
 # iteration for faster operation
-def euclid1(a, b):
-    while b != 0:
-        a, b = b, a %b
-    return a
+def euclid3(a, b):
+     while b != 0:
+         a, b = b, a %b
+     return a
 
-#   this is a pile of garbage
-# for some fucking reason it throws none
-# find multiplicative inverse of two numbers
-#def euclid2(e, phi):
-#    d = 0
-#    x1 = 0
-#    x2 = 1
-#   y1 = 1
-#    temp_phi = e
-#
-#    while e > 0:
-#        temp1 = temp_phi / e
-#        temp2 = temp_phi - temp1 * e
-#        temp_phi = e
-#        e = temp2
-#
-#        x = x2 - temp1 * x1
-#        y = d - temp1 * y1
-#
-#        x2 = x1
-#        x1 = x
-#        d = y1
-#        y1 = y1
-#
-#    if temp_phi == 1:
- #       for i in range(r):
- #           if((e*i)%r == 1):
- #               return i
- #       return d + phi
+def euclid1(a, b):
+    x, y, u, v = 0, 1, 1, 0
+    while a != 0:
+        q, r = b//a, b%a
+        m, n = x - u * q, y - v * q
+        b, a, x, y, u, v = a, r, u, v, m, n
+    gcd = b
+    return gcd, x, y
+
+def euclid2(a, m):
+    gcd, x, y = euclid1(a, m)
+    if gcd != 1:
+        return None
+    else: return x % m
 
 # key pair generator
 def keygen(p, q):
@@ -59,10 +44,10 @@ def keygen(p, q):
 
     e = random.randrange(1, phi)     # random might not be secure enough?
 
-    g = euclid1(e, phi)
+    g = euclid3(e, phi)
     while g != 1:
         e = random.randrange(1, phi)
-        g = euclid1(e, phi)
+        g = euclid3(e, phi)
 
     d = euclid2(e, phi) # this shit doesnt fucking work
 
