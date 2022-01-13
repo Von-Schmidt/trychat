@@ -16,7 +16,7 @@ def primesInRange(x, y):
     return prime_list
 
 # finding gcd using euclid's algorithm
-def euclid1(a, b):
+def greatest_common_denominator(a, b):
     x, y, u, v = 0, 1, 1, 0
     while a != 0:
         q, r = b//a, b%a
@@ -26,8 +26,8 @@ def euclid1(a, b):
     return gcd, x, y
 
 # euclid's modulo inverse function of two numbers
-def euclid2(a, m):
-    gcd, x, y = euclid1(a, m)
+def modulo_inverse(a, m):
+    gcd, x, y = greatest_common_denominator(a, m)
     if gcd != 1:
         return None
     else: return x % m
@@ -40,12 +40,12 @@ def keygen(p, q):
 
     e = random.randrange(1, phi)
 
-    g, _, _ = euclid1(e, phi)
+    g, _, _ = greatest_common_denominator(e, phi)
     while g != 1:
         e = random.randrange(1, phi)
-        g, _, _ = euclid1(e, phi)
+        g, _, _ = greatest_common_denominator(e, phi)
 
-    d = euclid2(e, phi)
+    d = modulo_inverse(e, phi)
 
     return ((e, n), (d, n))
 
@@ -110,4 +110,4 @@ encrypted_msg = sender_encryption(key_to_encrypt, message)
 # receiver decrypts the encrypted message
 decrypted_msg = receiver_decryption(encrypted_msg, privatekey)
 # print out the decrypted message
-print(decrypted_msg)
+print("Your decrypted message is: ", decrypted_msg)
