@@ -103,11 +103,15 @@ publickey, privatekey = receiver_key_generation()
 message = input("Input a message you want to send to receiver: ")
 # obtaining the public key
 key_to_encrypt = publickey
+print("Encrypting with your public key:", publickey)
 # encrypting the message using the public key
 encrypted_msg = sender_encryption(key_to_encrypt, message)
+print("Your encrypted message is:", encrypted_msg)
 
 # step three
 # receiver decrypts the encrypted message
+print("Decrypting with private key")
 decrypted_msg = receiver_decryption(encrypted_msg, privatekey)
+
 # print out the decrypted message
 print("Your decrypted message is: ", decrypted_msg)
